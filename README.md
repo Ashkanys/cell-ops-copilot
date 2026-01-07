@@ -1,2 +1,2 @@
-# cell-ops-copilot
-an SOP / Cell ops assistant to help researchers and scientist in the lab
+# cell-ops-copilot - LLM-Based Assistant for Cell Culture Protocols
+A retrieval-augmented LLM system to answer procedural and troubleshooting questions grounded in specific cell culture SOPs, reducing ambiguity and training overhead in laboratory workflows.
