@@ -100,7 +100,17 @@ Passage adherent mammalian cells from one tissue-culture vessel to another while
 - Record passage number, split ratio (or cells/cm²), vessel type, and date for traceability.
 
 ## References
-- Thermo Fisher (Gibco) — Subculturing (passaging) adherent cells. :contentReference[oaicite:11]{index=11}  
-- Sigma-Aldrich — Subculture of adherent cell lines (PBS wash, trypsin/EDTA usage). :contentReference[oaicite:12]{index=12}  
-- ATCC — Primary cell culture guide (PBS rinse; trypsin-EDTA coverage guidance). :contentReference[oaicite:13]{index=13}  
-- ATCC — Tips for successful subculturing: dissociation method (optimize enzyme strength/time to protect viability). :contentReference[oaicite:14]{index=14}  
+- Thermo Fisher (Gibco) — Subculturing adherent cells:  
+  https://www.thermofisher.com/us/en/home/references/gibco-cell-culture-basics/cell-culture-protocols/subculturing-adherent-cells.html
+
+- Sigma-Aldrich — Subculture of adherent cell lines (PBS without Ca²⁺/Mg²⁺; ~1 mL trypsin/EDTA per 25 cm²):  
+  https://www.sigmaaldrich.com/US/en/technical-documents/protocol/cell-culture-and-cell-culture-analysis/mammalian-cell-culture/subculture-of-adherent
+
+- ATCC — Animal cell culture guide (rinsing to remove serum inhibitors; general passaging guidance):  
+  https://www.atcc.org/-/media/resources/culture-guides/animal-cell-culture-guide.pdf
+
+- ATCC — Primary cell culture guide (example trypsin-EDTA volumes per surface area; PBS rinse guidance):  
+  https://www.atcc.org/resources/culture-guides/primary-cell-culture-guide
+
+- Thermo Fisher — Cell dissociation overview (EDTA chelation of Ca²⁺/Mg²⁺ supports detachment):  
+  https://www.thermofisher.com/us/en/home/life-science/cell-culture/mammalian-cell-culture/reagents/cell-dissociation.html

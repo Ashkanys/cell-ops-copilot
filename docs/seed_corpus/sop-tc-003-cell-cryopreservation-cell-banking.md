@@ -118,7 +118,15 @@ Once DMSO is added, **work quickly** (dispense and start freezing); prolonged ex
 - Bank with good traceability: cell line, passage, date, medium composition, and location (rack/box/slot).
 
 ## References
-- ATCC — Cryogenic Storage of Animal Cells (general guidance; typical 5–10% DMSO ranges).
-- Thermo Fisher (Gibco) — Freezing Cells (slow-freeze ~1 °C/min; −80 overnight; LN₂ gas phase below −135 °C).
-- ATCC — Animal Cell Culture Guide (controlled-rate freezing concepts and handling considerations).
-- Fisher Scientific application note — Cryopreservation of Mammalian Cells (example ranges for cell density and cryoprotectant).
+- ATCC — *Cryogenic Storage of Animal Cells* (technical document):  
+  https://www.atcc.org/resources/technical-documents/cryogenic-storage-of-animal-cells  
+  (PDF version) https://www.atcc.org/-/media/resources/technical-documents/cryogenic-storage-of-animal-cells.pdf
+
+- Thermo Fisher (Gibco) — *Freezing Cells* (slow-freeze ~1 °C/min; −80 °C overnight; transfer to LN₂ gas phase below ~−135 °C):  
+  https://www.thermofisher.com/us/en/home/references/gibco-cell-culture-basics/cell-culture-protocols/freezing-cells.html
+
+- ATCC — *Animal Cell Culture Guide* (includes cryopreservation guidance):  
+  https://www.atcc.org/-/media/resources/culture-guides/animal-cell-culture-guide.pdf
+
+- Thermo Fisher / Fisher Scientific — *Cryopreservation of Mammalian Cells – Protocols* (application note, cooling rate and storage guidance):  
+  https://assets.fishersci.com/TFS-Assets/LSG/Application-Notes/D19575.pdf
