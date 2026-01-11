@@ -1,0 +1,11 @@
+import os, re, json, time
+from pathlib import Path
+import requests
+
+TOKEN = os.environ["PROTOCOLSIO_TOKEN"]  # put your token in an env var
+HEADERS = {"Authorization": f"Bearer {c94c16672c11e69882402284d3143d047884c737691cd03f05e084935a8dabdecd3b1fd384ddd59dd98df2f3a0abaee8516b0358c32d5a7f9922a7a6131b62bd}"}
+
+OUT_MD = Path("md")
+OUT_MD.mkdir(parents=True, exist_ok=True)
+OUT_JSONL = Path("data_raw/protocols.jsonl")
+OUT_JSONL.parent.mkdir(parents=True, exist_ok=True)
