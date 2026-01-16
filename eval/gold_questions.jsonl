@@ -1,0 +1,14 @@
+{"query":"Before starting sterile work in the biosafety cabinet (BSC), how long should the blower run to purge/stabilize airflow?","expected":[{"doc_id":"sop-tc-006","section":"Procedure"}]}
+{"query":"If contamination is suspected, what exact label should be placed on any reagents used with that culture since the last clean check?","expected":[{"doc_id":"sop-tc-004","section":"Procedure"}]}
+{"query":"Hemocytometer method: what is the formula for viable cells per mL (including dilution factor and the 10^4 term)?","expected":[{"doc_id":"sop-tc-007","section":"Procedure"}]}
+{"query":"Media handling: can unused media or reagent ever be returned to the original stock bottle?","expected":[{"doc_id":"sop-tc-005","section":"Procedure"}]}
+{"query":"During cryopreservation, what cooling rate is targeted and how is it achieved (what kind of freezing setup/container)?","expected":[{"doc_id":"sop-tc-003","section":"Procedure"}]}
+
+{"query":"Why does the SOP instruct adding thawed cells dropwise into warm medium (what problem is it preventing)?","expected":[{"doc_id":"sop-tc-001","section":"Procedure"},{"doc_id":"sop-tc-008","section":"Procedure"}]}
+{"query":"After detaching adherent cells, what centrifugation condition is suggested to pellet cells (approx g-force and time)?","expected":[{"doc_id":"sop-tc-002","section":"Procedure"},{"doc_id":"sop-tc-003","section":"Procedure"}]}
+
+{"query":"If cells end up unevenly distributed after seeding (e.g., “cells in a corner”), what motion does the SOP recommend instead of circular swirling?","expected":[{"doc_id":"sop-tc-002","section":"Troubleshooting"}]}
+
+{"query":"What CO2 percentage setpoint (e.g., 5% CO2) does the SOP require for the incubator for routine culture?","no_answer":true,"expected":[]}
+{"query":"What penicillin-streptomycin (P/S) concentration should be added to complete medium according to these SOPs?","no_answer":true,"expected":[]}
+

@@ -1,0 +1,56 @@
+{"query":"When thawing adherent cells, how much warm complete medium should be pre-filled in the conical tube before you start diluting the vial?","expected":[{"doc_id":"sop-tc-001","section":"preparation"}]}
+{"query":"During thawing, at what point should you remove the cryovial from the 37C water bath?","expected":[{"doc_id":"sop-tc-001","section":"procedure"}]}
+{"query":"Why do we add thawed cells dropwise into warm medium during thawing?","expected":[{"doc_id":"sop-tc-001","section":"critical_points"}]}
+{"query":"If I see low attachment about 12 hours after thawing, what are the likely causes and what should I do?","expected":[{"doc_id":"sop-tc-001","section":"troubleshooting"}]}
+{"query":"Right after seeding a thaw, what should cells look like vs. 8–12 hours later?","expected":[{"doc_id":"sop-tc-001","section":"qc_checks"}]}
+
+{"query":"For passaging adherent cells, what confluency is commonly used as a guideline for when to passage?","expected":[{"doc_id":"sop-tc-002","section":"procedure"}]}
+{"query":"Before trypsinization, when is a PBS/DPBS rinse recommended and what is it trying to remove?","expected":[{"doc_id":"sop-tc-002","section":"procedure"}]}
+{"query":"How much trypsin is typical per 25 cm^2 surface area during passaging?","expected":[{"doc_id":"sop-tc-002","section":"procedure"}]}
+{"query":"How long is detachment incubation typically, and what visual sign tells you cells are ready?","expected":[{"doc_id":"sop-tc-002","section":"procedure"}]}
+{"query":"What are common reasons for low detachment efficiency, and what adjustments does the SOP suggest?","expected":[{"doc_id":"sop-tc-002","section":"troubleshooting"}]}
+{"query":"What details should I record for traceability when passaging?","expected":[{"doc_id":"sop-tc-002","section":"critical_points"}]}
+
+{"query":"For cryopreservation cell banking, what target confluency is recommended before freezing adherent cells?","expected":[{"doc_id":"sop-tc-003","section":"procedure"}]}
+{"query":"What DMSO percentage range is suggested for freezing medium in this SOP?","expected":[{"doc_id":"sop-tc-003","section":"materials"}]}
+{"query":"What viable cell concentration range (cells per mL) is suggested when resuspending into freezing medium?","expected":[{"doc_id":"sop-tc-003","section":"procedure"}]}
+{"query":"What volume of cell suspension goes into each cryovial?","expected":[{"doc_id":"sop-tc-003","section":"procedure"}]}
+{"query":"What cooling rate is the SOP targeting during freezing and how is it achieved?","expected":[{"doc_id":"sop-tc-003","section":"procedure"}]}
+{"query":"How long should vials stay at -80C before moving to liquid nitrogen for long-term storage?","expected":[{"doc_id":"sop-tc-003","section":"procedure"}]}
+{"query":"List likely causes of low post-thaw viability from banked vials and the SOP’s fixes.","expected":[{"doc_id":"sop-tc-003","section":"troubleshooting"}]}
+
+{"query":"If I suspect contamination, what are the first three immediate actions I should take in the BSC?","expected":[{"doc_id":"sop-tc-004","section":"procedure"}]}
+{"query":"What exact label text should go on the contaminated culture vessel?","expected":[{"doc_id":"sop-tc-004","section":"procedure"}]}
+{"query":"What disinfectant is commonly used for the BSC work area during contamination cleanup and what contact time range is mentioned?","expected":[{"doc_id":"sop-tc-004","section":"procedure"}]}
+{"query":"After using bleach in the BSC, what follow-up step does the SOP recommend and why?","expected":[{"doc_id":"sop-tc-004","section":"critical_points"}]}
+{"query":"What information should be documented in the lab log during a contamination incident?","expected":[{"doc_id":"sop-tc-004","section":"procedure"}]}
+{"query":"If I’m not sure whether it’s contamination vs debris, what does the SOP tell me to do?","expected":[{"doc_id":"sop-tc-004","section":"troubleshooting"}]}
+{"query":"If multiple cultures show signs at once, what does the SOP recommend?","expected":[{"doc_id":"sop-tc-004","section":"troubleshooting"}]}
+
+{"query":"What labeling fields must be added to each bottle/tube (received/opened/expiry/etc.)?","expected":[{"doc_id":"sop-tc-005","section":"preparation"}]}
+{"query":"What to do with unused media?","expected":[{"doc_id":"sop-tc-005","section":"procedure"}]}
+{"query":"How should serum be thawed ideally?","expected":[{"doc_id":"sop-tc-005","section":"procedure"}]}
+{"query":"What should you do if you accidentally touch the bottle neck or cap interior during aseptic handling?","expected":[{"doc_id":"sop-tc-005","section":"procedure"}]}
+{"query":"If contamination is frequent despite good technique, what troubleshooting actions does the SOP suggest?","expected":[{"doc_id":"sop-tc-005","section":"troubleshooting"}]}
+
+{"query":"Before starting sterile work in the BSC, how long should you let airflow purge/stabilize?","expected":[{"doc_id":"sop-tc-006","section":"procedure"}]}
+{"query":"What should you wipe inside the hood before starting work?","expected":[{"doc_id":"sop-tc-006","section":"procedure"}]}
+{"query":"What are the daily quick checks recommended for a CO2 incubator?","expected":[{"doc_id":"sop-tc-006","section":"procedure"}]}
+{"query":"What is recommended weekly for the incubator humidity pan (and what water type)?","expected":[{"doc_id":"sop-tc-006","section":"procedure"}]}
+{"query":"If you’re seeing BSC turbulence and sterility problems, what likely causes and fixes does the SOP list?","expected":[{"doc_id":"sop-tc-006","section":"troubleshooting"}]}
+
+{"query":"For trypan blue counting, what is the standard mix ratio and example volumes?","expected":[{"doc_id":"sop-tc-007","section":"procedure"}]}
+{"query":"After mixing cells with trypan blue, how soon should you count and why?","expected":[{"doc_id":"sop-tc-007","section":"procedure"}]}
+{"query":"Hemocytometer: how many squares are counted and what border rule is recommended?","expected":[{"doc_id":"sop-tc-007","section":"procedure"}]}
+{"query":"Hemocytometer: what is the formula for viable cells per mL (include the 10^4 factor and dilution factor)?","expected":[{"doc_id":"sop-tc-007","section":"procedure"}]}
+{"query":"What replicate consistency threshold is mentioned, and what should you do if counts differ more than that?","expected":[{"doc_id":"sop-tc-007","section":"procedure"}]}
+{"query":"If trypan blue looks cloudy or full of particles, what does the SOP tell you to do?","expected":[{"doc_id":"sop-tc-007","section":"preparation"}]}
+
+{"query":"For plating from frozen stock into 384-well plates, what overage factor is suggested when calculating total cells needed?","expected":[{"doc_id":"sop-tc-008","section":"preparation"}]}
+{"query":"How do you compute target cells per mL from cells per well and dispense volume (give the example factor for 50 uL)?","expected":[{"doc_id":"sop-tc-008","section":"preparation"}]}
+{"query":"When thawing for HTS plating, what batch size of vials is recommended and how long is the thaw typically?","expected":[{"doc_id":"sop-tc-008","section":"procedure"}]}
+{"query":"What centrifugation conditions are suggested to remove DMSO for HTS plating?","expected":[{"doc_id":"sop-tc-008","section":"procedure"}]}
+{"query":"What are the priming liquids and order for the Multidrop cassette before dispensing cells?","expected":[{"doc_id":"sop-tc-008","section":"procedure"}]}
+{"query":"After dispensing into 384-well plates, how long should plates rest at room temperature and why?","expected":[{"doc_id":"sop-tc-008","section":"procedure"}]}
+
+{"query":"cells don't look good after thawing, what should I do?","expected": [{"doc_id": "sop-tc-001", "section": "troubleshooting"}]}
