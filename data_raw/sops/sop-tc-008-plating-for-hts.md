@@ -43,7 +43,7 @@ Plate adherent mammalian cells from frozen cryovials into **384-well plates** fo
 1. Determine the number of vials to thaw based on the calculated total cells needed.
 2. Thaw cryovials in batch of 5, quickly in a 37 °C water bath until only a small ice crystal remains (typically ~1–2 min).
 3. Wipe each cryovial thoroughly with 70% ethanol and transfer it into the BSC.
-4. Transfer the thawed contents **dropwise** into a 50 mL conical containing pre-warmed complete medium (use a consistent dilution volume per vial).
+4. Transfer the thawed contents **dropwise** into a 50 mL conical containing pre-warmed complete medium to reduce the shear stress induced on the cells (use a consistent dilution volume per vial).
 
 ### B) Remove DMSO (typical for DMSO-frozen stocks)
 5. Centrifuge the pooled cell suspension at **~200–300 × g for ~5 min** (adjust per cell type and lab practice).

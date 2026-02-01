@@ -9,12 +9,14 @@ class Settings(BaseModel):
     logs_dir: Path = Path("data/logs")
 
     # Chunking knobs
+    min_chars: int = 80
+    min_words: int = 10
     max_chars: int = 1400
     procedure_steps_per_chunk: int = 30
 
     # Retrieval knobs
     top_k: int = 5
-    NO_ANSWER_THRESHOLD: float = 0.25  # for the eval "no answer" decision
+    NO_ANSWER_THRESHOLD: float = 0.4  # for the eval "no answer" decision
 
     # Embeddings
     embedding_model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
