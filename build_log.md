@@ -315,5 +315,173 @@ To avoid over-crediting “almost correct” hits, evaluation was expanded to re
   - chunk metadata creation
   - gold label creation
 - If subsections are purely structural (“A/B/C”) and not meaningful to users, consider mapping them to more descriptive subsection titles when possible (e.g., “A. Setup” instead of “A”).
+---
+
+## 7) Added generative answer layer (Week 3): grounded RAG, citations, and safe defaults
+
+After validating retrieval + chunk quality, I started building the **generative answering layer** on top of the existing pipeline (chunks → FAISS → Streamlit). The goal was to keep the system *citations-first* and *safe-by-default*, while making it easy to plug in different LLM providers later.
+
+### 7.1 Introduced a structured Answer schema (app/answer_schema.py)
+**Change**
+- Added Pydantic models to standardize the output of the RAG layer:
+  - `RetrievedSource`: `chunk_id`, `citation`, `score`, `text`
+  - `Answer`: `final_answer_md`, `citations`, `confidence`, `warnings`, `followups`, plus:
+    - `sources` for UI/debug
+    - `abstained` + `abstain_reason` for refusal behavior
+
+**Why**
+- Avoid ad-hoc dicts across Streamlit / evaluation / debugging.
+- Make it easy to validate that generated answers have citations and trace back to sources.
+
+**Outcome**
+- A single “contract” for answering that the UI can render reliably.
+
+---
+
+### 7.2 Added provider-agnostic LLM client with a safe stub default (app/llm_client.py)
+**Change**
+- Added a small `LLM` interface (`generate(prompt)->str`) and a default `StubLLM`.
+- `get_llm()` reads `LLM_PROVIDER` from env; defaults to `"stub"`.
+
+**Why**
+- Project should run **without API keys**.
+- Makes the generative layer optional and prevents accidental hallucinations while the grounding loop is still being built.
+
+**Outcome**
+- The app can demo the “generate” workflow safely even before a real provider is configured.
+
+---
+
+### 7.3 Added grounded prompting rules (app/prompting.py)
+**Change**
+- Implemented `build_grounded_prompt(user_query, sources)` that:
+  - embeds each source with explicit `chunk_id` + citation string
+  - forces strict rules:
+    - use only provided context
+    - cite every instruction inline as `[chunk_id]`
+    - abstain / ask follow-ups when context is insufficient
+  - outputs structured Markdown sections:
+    - Steps, Critical points, QC, Troubleshooting, When to escalate, etc.
+
+**Why**
+- The main risk in a lab assistant is invented steps.
+- Citation constraints keep the model honest and make answers auditable.
+
+**Outcome**
+- A consistent “grounded answer” prompt format reusable across providers.
+
+---
+
+### 7.4 Implemented RAG Answerer: retrieve → abstain → generate → validate citations (app/rag_answer.py)
+**Change**
+- Added a single entrypoint `answer_query(...)` that:
+  1) retrieves top-k chunks (`retrieve_topk`)
+  2) computes confidence heuristics from scores
+  3) applies abstention logic (`should_abstain`)
+  4) builds prompt + calls LLM
+  5) extracts citations and validates them against retrieved chunk_ids
+
+**Key details**
+- Retrieval uses “over-fetch” (k*6) then filters down to k useful chunks.
+- `format_citation()` produces human citations including section/subsection/steps/line ranges.
+- Citation parser (`extract_cited_chunk_ids`) only accepts citations that refer to retrieved chunk_ids.
+- If the model returns no valid citations:
+  - confidence is downgraded
+  - a warning is added
+
+**Why**
+- Keeps runtime behavior aligned with the project principle:
+  “If it’s not supported by SOP text, refuse or ask follow-ups.”
+
+**Outcome**
+- A working generative layer that can be turned on/off independently of the retriever.
+
+---
+
+### 7.5 Streamlit wiring: Retrieve-only vs Generate-answer modes
+**Change**
+- Added UI toggle: `Generate answer (Week 3)`
+- Two-column layout:
+  - **Answer panel**: generated Markdown, confidence, abstain warnings, cited chunk_ids
+  - **Sources panel**: ranked retrieved chunks with score and expandable text
+
+**Why**
+- Makes debugging easy: you can see whether generation is grounded and which chunks it used.
+- Keeps “retrieve-only” mode as a baseline.
+
+**Outcome**
+- MVP supports both:
+  - retrieval-only exploration
+  - citation-grounded generative answers (with safe stub until LLM provider added)
+
+---
+
+### Notes / Follow-ups
+- This layer is intentionally conservative:
+  - abstains on low evidence
+  - requires citations and warns when missing
+- Next steps will be:
+  - plug in a real local provider (e.g., Ollama) behind `LLM_PROVIDER`
+  - tune abstention thresholds using the gold evaluation harness
+  - add stronger answer validation (e.g., “every bullet must cite”, citation coverage checks)
+
+---
+## 8) Local GenAI integration: Ollama provider for grounded generation
+
+After the provider-agnostic generative layer was in place (with a safe StubLLM default), I integrated **Ollama** to enable fully local, keyless generation on my Mac (M3, 16GB RAM) while keeping the same “citations-first” RAG behavior.
+
+### 8.1 Chose small local models for responsiveness (3B–4B)
+**Decision**
+- Targeted 3B–4B instruct models (quantized) as the best tradeoff for:
+  - responsive Streamlit UX
+  - stable structured outputs
+  - lower memory/latency overhead on a laptop
+
+**Models pulled**
+- `qwen2.5:3b-instruct` (preferred for structured outputs)
+- `llama3.2:3b` (fallback / alternative)
+
+**Outcome**
+- Local generation is fast enough for an interactive demo without relying on external APIs.
+
+---
+
+### 8.2 Replaced Stub-only client with an Ollama-backed LLM provider (app/llm_client.py)
+**Change**
+- Extended `get_llm()` to support:
+  - `LLM_PROVIDER=stub` (default, safe)
+  - `LLM_PROVIDER=ollama` (local generation via REST)
+- Implemented `OllamaLLM.generate()` using Ollama’s local endpoint:
+  - `POST http://localhost:11434/api/generate`
+  - `stream: False` for a single JSON response payload
+- Added environment-configurable options:
+  - `OLLAMA_MODEL` (default `qwen2.5:3b-instruct`)
+  - `OLLAMA_BASE_URL` (default `http://localhost:11434`)
+  - `OLLAMA_TEMPERATURE`
+  - `OLLAMA_TIMEOUT_S`
+
+**Why**
+- Keep the codebase provider-agnostic: the RAG layer calls the same `llm.generate(prompt)` interface.
+- Make the project runnable out-of-the-box (no keys) and offline-friendly.
+- Preserve safe behavior: if Ollama is not configured, the app stays in retrieve-only mode via the stub.
+
+**Outcome**
+- Generative answers can run entirely locally while preserving grounding + citation constraints.
+
+---
+
+### 8.3 Documented local setup + execution workflow
+**Setup**
+- Install Ollama and pull a model:
+  - `ollama pull qwen2.5:3b-instruct`
+  - `ollama pull llama3.2:3b`
+
+**Run**
+- Enable Ollama provider via env vars:
+  - `LLM_PROVIDER=ollama`
+  - `OLLAMA_MODEL=qwen2.5:3b-instruct` (or `llama3.2:3b`)
+
+**Outcome**
+- Switching models requires no code changes—only env var updates.
 
 ---

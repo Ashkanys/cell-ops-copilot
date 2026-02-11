@@ -203,7 +203,7 @@ def main():
     hits_doc = {k: 0 for k in ks}
     hits_pair = {k: 0 for k in ks}
     hits_triple = {k: 0 for k in ks}
-    answers_with_section_gold = {k: [] for k in ks}
+    answers_with_subsection_gold = {k: [] for k in ks}
 
     ranks_doc: List[Optional[int]] = []
     ranks_pair: List[Optional[int]] = []
@@ -324,7 +324,7 @@ def main():
             topk_triples = set(retrieved_triples[:k])
             if exp_triples.intersection(topk_triples):
                 hits_triple[k] += 1
-                answers_with_section_gold[k].append(ex["query"][:8]) # first 8 chars of query for ID"
+                answers_with_subsection_gold[k].append(ex["query"][:8]) # first 8 chars of query for ID"
 
     # -------------------------
     # Reporting
@@ -371,6 +371,7 @@ def main():
     if n_answerable and n_answerable_with_subsection_gold:
         for k in ks:
             print(f"hit@{k}: {hits_triple[k]}/{n_answerable_with_subsection_gold} = {hits_triple[k]/n_answerable_with_subsection_gold:.3f}")
+            print(f"  Queries with correct doc+section+subsection in top {k}: {answers_with_subsection_gold[k]}")
         tri_median = safe_median(ranks_triple)
         tri_miss = sum(1 for r in ranks_triple if r is None)
         print(f"first_hit_k@{K} median: {tri_median if tri_median is not None else 'NA'} | miss@{K}: {tri_miss}/{n_answerable_with_subsection_gold}")
